@@ -1,18 +1,18 @@
-=== Propeller Commerce ===
-Contributors: propellercommerce
+=== Propeller Ecommerce v2 ===
+Contributors: Propeller Ecommerce v2
 Tags: b2b, ecommerce, propeller, graphql, wholesale, manufacturing
 Requires at least: 6.2
 Tested up to: 6.9
 Stable tag: 1.0.0
 Requires PHP: 8.1 or later
-License: GPLv2
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Add a complete B2B ecommerce portal to your WordPress site powered by Propeller Commerce and GraphQL API V2.
 
 == Description ==
 
-**Propeller Commerce** gives your WordPress site a full B2B customer portal where your buyers can browse your catalog, see their own prices, place orders, request quotes and manage their account. Connect the plugin to your Propeller environment and you have a working storefront without building a custom frontend.
+**Propeller Ecommerce v2** gives your WordPress site a full B2B customer portal where your buyers can browse your catalog, see their own prices, place orders, request quotes and manage their account. Connect the plugin to your Propeller environment and you have a working storefront without building a custom frontend.
 
 All product data, pricing rules and order processing live in Propeller. The plugin fetches everything in real time through the GraphQL API V2 so your WordPress site always shows up-to-date information. WordPress stays your CMS for pages, blog posts and content while Propeller handles the commerce.
 
@@ -68,14 +68,14 @@ Use the plugin to evaluate Propeller or run it in production. For projects that 
 = Install from WordPress =
 
 1. Go to Plugins > Add New in your WordPress admin
-1. Search for "Propeller Commerce"
+1. Search for "Propeller Ecommerce v2"
 1. Click "Install Now" and then "Activate"
 
 = Install Manually =
 
 1. Download the plugin from the [Propeller Commerce GitHub](https://github.com/propeller-commerce/wordpress-v2)
 1. Upload the plugin folder to `/wp-content/plugins/`
-1. Go to Plugins in your WordPress admin and activate Propeller Commerce
+1. Go to Plugins in your WordPress admin and activate Propeller Ecommerce v2
 
 = Configure the Connection =
 
