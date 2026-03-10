@@ -11,8 +11,8 @@ class Category extends BaseObject {
 
     public mixed $categoryId = null;
     public ?array $name = null;
-    public array $attributes = [];
-    public array $trackAttributes = [];
+    public ?stdClass $attributes = null;
+    public ?stdClass $trackAttributes = null;
     public ?stdClass $attributeItems = null;
     public ?stdClass $trackAttributeItems = null;
     public array $images = [];
@@ -21,7 +21,7 @@ class Category extends BaseObject {
         parent::__construct($category);
 
         if (isset($category->trackAttributes) && isset($category->trackAttributes->itemsFound) && $category->trackAttributes->itemsFound > 0) {
-            $attrs = new AttributeArray($category->trackAttributes->items);
+            $attrs = new AttributeArray($category->trackAttributes);
 
             $this->trackAttributes = $attrs->get_non_empty_attrs();
 
@@ -37,23 +37,23 @@ class Category extends BaseObject {
     }
 
     public function has_attributes(): bool {
-        return count($this->attributes) > 0;
+        return count($this->attributes->items) > 0;
     }
 
     public function get_attributes(): array {
-        return $this->attributes;
+        return $this->attributes->items;
     }
 
     public function has_track_attributes(): bool {
-        return count($this->trackAttributes) > 0;
+        return count($this->trackAttributes->items) > 0;
     }
 
     public function get_track_attributes(): array {
-        return $this->trackAttributes;
+        return $this->trackAttributes->items;
     }
 
     public function get_track_attr_by_name(string $name): ?Attribute {
-        $found = array_filter($this->trackAttributes, function($obj) use ($name) {
+        $found = array_filter($this->trackAttributes->items, function($obj) use ($name) {
             return $obj->attributeDescription->name == $name;
         });
 
@@ -64,7 +64,7 @@ class Category extends BaseObject {
     }
 
     public function get_track_attr_value(string $name): mixed {
-        $found = array_filter($this->trackAttributes, function($obj) use ($name) {
+        $found = array_filter($this->trackAttributes->items, function($obj) use ($name) {
             return $obj->attributeDescription->name == $name;
         });
 
