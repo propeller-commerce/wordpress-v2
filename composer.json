@@ -1,0 +1,33 @@
+{
+    "name": "propeller/propeller",
+    "description": "Propeller E-Commerce plugin for Wordpress",
+    "type": "wordpress-plugin",
+    "require": {
+        "matthiasmullie/minify": "dev-master",
+        "phpoffice/phpspreadsheet": "^1.19",
+        "gettext/php-scanner": "dev-master",
+        "gettext/gettext": "^5.7.0",
+        "softonic/graphql-client": "^1.3.0",
+        "voku/anti-xss": "^4.1@dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Darko Krstev",
+            "email": "d.krstev@propellor.eu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Propeller\\": "./includes",
+            "Propeller\\Admin\\": "./admin",
+            "Propeller\\Frontend\\": "./public"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
