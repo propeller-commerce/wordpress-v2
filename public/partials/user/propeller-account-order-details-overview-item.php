@@ -3,8 +3,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 use Propeller\Includes\Controller\PageController;
 use Propeller\Includes\Enum\PageType;
 use Propeller\PropellerHelper;
-
-dump($item);
 ?>
 
 <div class="order-product-item">
