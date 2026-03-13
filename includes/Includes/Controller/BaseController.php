@@ -347,14 +347,23 @@ class BaseController extends PropellerApi
                         break;
 
                     case "rangeFilters": // [RangeFilterInput!]
-                        if (sizeof($value))
-                            $params[$key] = $value;
+                        if (sizeof($value)) {
+                            $params[$key] = [
+                                'from' => $value['from'] == '0' || empty($value['from']) ? 0 : (float) $value['from'],
+                                'to' => (float) $value['to']
+                            ];
+                        }
 
                         break;
 
                     case "price":   // PriceFilterInput
-                        if (sizeof($value))
-                            $params[$key] = $value;
+                        if (sizeof($value)) {
+                            $params['price'] = [
+                                'from' => $value['from'] == '0' || empty($value['from']) ? 0 : (float) $value['from'],
+                                'to' => (float) $value['to']
+                            ];
+                        }
+                            // $params[$key] = $value;
 
                         break;
 
@@ -430,15 +439,16 @@ class BaseController extends PropellerApi
                 $filter = [];
 
                 if (is_array($value)) {
+                    
                     if (isset($value['from']) && isset($value['to'])) {
                         if ($key == 'price') {
                             $filters['price'] = [
-                                'from' => (float) $value['from'],
+                                'from' => $value['from'] == '0' || empty($value['from']) ? 0 : (float) $value['from'],
                                 'to' => (float) $value['to']
                             ];
                         } else {
                             $filter['name'] = $key;
-                            $filter['from'] = (float) $value['from'];
+                            $filter['from'] = $value['from'] == '0' || empty($value['from']) ? 0 : (float) $value['from'];
                             $filter['to'] = (float) $value['to'];
                             $filter['exclude'] = false;
 
